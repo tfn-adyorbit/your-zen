@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Satellite Radio Call – Premium In-Vehicle Audio & Satellite Radio</title>
+  <meta name="description"
+    content="Satellite Radio Call offers premium satellite radio receivers, in-dash stereo systems, and multimedia receivers. Shop now or call +1 (888) 399-2902." />
+  <link rel="preconnect" href="https://fonts.googleapis.com/" />
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Outfit:wght@400;600;700;800;900&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- CART OVERLAY -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+  <!-- CART SIDEBAR -->
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>Your Cart <span class="cart-count-badge" id="cartCountBadge">0</span></h2>
+      <button class="cart-close-btn" onclick="closeCart()" aria-label="Close cart">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty" id="cartEmpty">
+        <div class="cart-empty-icon">🛒</div>
+        <p>Your cart is empty</p>
+        <span>Add some products to get started!</span>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">$0.00</strong>
+      </div>
+      <p class="cart-shipping-note">Free shipping on orders over $99 · Taxes at checkout</p>
+      <button class="btn-checkout" onclick="checkout()">Proceed to Checkout →</button>
+      <button class="btn-continue" onclick="closeCart()">Continue Shopping</button>
+    </div>
+  </aside>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- DISCLAIMER NOTICE BAR -->
+  <div class="disclaimer-bar" id="disclaimerBar">
+    <div class="disclaimer-bar-inner">
+      <span class="disclaimer-bar-icon">ℹ️</span>
+      <p><strong>Independent Content Provider:</strong> Satellite Radio Call is not affiliated with any brand. Brand names
+        &amp; logos are for representation only. We sell these items and provide subscriptions independently.</p>
+      <button class="disclaimer-bar-close" id="disclaimerBarClose" onclick="dismissDisclaimer()"
+        aria-label="Dismiss notice">✕</button>
+    </div>
+  </div>
+
+  <!-- TOP BAR -->
+  <div class="topbar" id="topbar">
+    <div class="topbar-inner">
+      <span>⭐ Rated 4.9/5 by 50,000+ customers</span>
+      <a href="tel:+18883992902" class="topbar-phone topbar-phone-main" id="topbarPhone">📞 Call Now: +1 (888) 399-2902
+        — Available 24/7</a>
+      <span>🔒 Free expert consultation</span>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo" id="navLogo">
+        <div class="logo-icon">📻</div>
+        <div class="logo-text">
+          <span class="logo-brand">Satellite Radio</span>
+          <span class="logo-sub">Call</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+        <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
+        <li><a href="#products" onclick="closeMobileMenu()">Shop</a></li>
+        <li><a href="#plans" onclick="closeMobileMenu()">Plans</a></li>
+        <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+        <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+        <!-- Mobile-only call button -->
+        <li class="mobile-only-nav">
+          <a href="tel:+18883992902" class="mobile-call-link">📞 +1 (888) 399-2902</a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="tel:+18883992902" class="nav-phone nav-phone-cta" id="navPhone">
+          <span class="nav-phone-icon">📞</span>
+          <span class="nav-phone-text">
+            <span class="nav-phone-label">Free Call 24/7</span>
+            <span class="nav-phone-number">+1 (888) 399-2902</span>
+          </span>
+        </a>
+        <button class="cart-btn" id="cartBtn" onclick="openCart()" aria-label="Open cart">
+          🛒 <span class="cart-count" id="navCartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+          <span id="ham1"></span><span id="ham2"></span><span id="ham3"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-left">
+      <div class="hero-badge">🏆 #1 Rated Radio Service Desk — 50,000+ Customers</div>
+      <h1 class="hero-title">Get Expert Help<br /><span class="accent-text">Call Us Free Now</span></h1>
+      <p class="hero-desc">Speak with a satellite radio expert in seconds. Premium systems, subscriptions, and
+        installation — get exactly what you need on the first call.</p>
+
+      <!-- PRIMARY CALL CTA -->
+      <a href="tel:+18883992902" class="hero-call-mega" id="heroCallMega">
+        <div class="hero-call-mega-icon">📞</div>
+        <div class="hero-call-mega-text">
+          <span class="hero-call-mega-label">Call Free — 24/7 Expert Support</span>
+          <span class="hero-call-mega-number">+1 (888) 399-2902</span>
+        </div>
+        <div class="hero-call-mega-arrow">→</div>
+      </a>
+
+      <div class="hero-btns">
+        <a href="#products" class="btn-secondary" id="heroShopBtn">Browse Products</a>
+        <a href="#plans" class="btn-secondary" id="heroPlansBtn">View Plans</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><strong>500+</strong><span>Products</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><strong>50K+</strong><span>Customers</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><strong>24/7</strong><span>Live Support</span></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img-main">
+        <img src="hero_banner.jpg" alt="Premium car radio experience" id="heroMainImg" />
+      </div>
+      <div class="hero-img-badge">
+        <img src="71.jpg" alt="Satellite Radio Receiver" id="heroFloatImg" />
+        <span>Satellite Ready</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap" id="tickerWrap">
+    <div class="ticker-track">
+      <span>🎵 Satellite Radio</span><span>📡 SXM Premium Plans</span><span>🚗 In-Dash Receivers</span>
+      <span>🎙 Expert Installation</span><span>📻 1000+ Channels</span><span>⭐ Top Rated</span>
+      <span>🔊 Crystal Clear Audio</span><span>🛡 Lifetime Warranty</span>
+      <span>🎵 Satellite Radio</span><span>📡 SXM Premium Plans</span><span>🚗 In-Dash Receivers</span>
+      <span>🎙 Expert Installation</span><span>📻 1000+ Channels</span><span>⭐ Top Rated</span>
+      <span>🔊 Crystal Clear Audio</span><span>🛡 Lifetime Warranty</span>
+    </div>
+  </div>
+
+  <!-- BRANDS / TRUST LOGOS -->
+  <section class="brands-section" id="brands">
+    <div class="container">
+      <p class="brands-label">Trusted Brands We Carry</p>
+      <div class="brands-row">
+        <div class="brand-chip">Kenwood</div>
+        <div class="brand-chip">Pioneer</div>
+        <div class="brand-chip">Alpine</div>
+        <div class="brand-chip">JVC</div>
+        <div class="brand-chip">Soundstream</div>
+        <div class="brand-chip">Sony</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What We Offer</span>
+        <h2 class="section-title">Premium Radio <span class="accent-text">Services</span></h2>
+        <p class="section-desc">From subscriptions to expert installation — everything you need for the ultimate
+          in-vehicle audio experience.</p>
+      </div>
+      <div class="services-grid" id="servicesGrid">
+        <div class="service-card" id="svc1">
+          <div class="svc-icon-wrap blue"><span>📡</span></div>
+          <h3>Satellite Radio</h3>
+          <p>Access 1,000+ channels of commercial-free music, sports, news, and entertainment anywhere you drive.</p>
+          <a href="#plans" class="svc-link">Explore Plans →</a>
+        </div>
+        <div class="service-card" id="svc2">
+          <div class="svc-icon-wrap indigo"><span>🔧</span></div>
+          <h3>Pro Installation</h3>
+          <p>Certified technicians ensure perfect integration of your new audio system with your specific vehicle.</p>
+          <a href="#contact" class="svc-link">Book Appointment →</a>
+        </div>
+        <div class="service-card" id="svc3">
+          <div class="svc-icon-wrap violet"><span>🛠️</span></div>
+          <h3>Repair & Upgrade</h3>
+          <p>Expert repair services and hardware upgrades to bring your existing audio system back to peak performance.
+          </p>
+          <a href="#contact" class="svc-link">Get a Quote →</a>
+        </div>
+        <div class="service-card" id="svc4">
+          <div class="svc-icon-wrap teal"><span>💬</span></div>
+          <h3>24/7 Support</h3>
+          <p>Round-the-clock help from radio experts. Call +1 (888) 399-2902 anytime — we're always here for you.</p>
+          <a href="tel:+18883992902" class="svc-link">Call Now →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE STRIP -->
+  <section class="feature-strip" id="featureStrip">
+    <div class="container">
+      <div class="strip-grid">
+        <div class="strip-img-col">
+          <img src="product_multimedia_receiver.jpg" alt="Driver using car radio" id="stripImg" />
+        </div>
+        <div class="strip-content">
+          <span class="section-tag">Why Choose Satellite Radio Call?</span>
+          <h2 class="section-title" style="text-align:left;">The Audio Experts<br /><span class="accent-text">You Can
+              Trust</span></h2>
+          <p>With over 20 years of experience, Satellite Radio Call is your #1 choice for in-vehicle audio. Our specialists
+            and top-brand product selection ensure every ride sounds incredible.</p>
+          <ul class="feature-list" id="featureList">
+            <li><span class="feat-check">✓</span> Industry-leading product selection</li>
+            <li><span class="feat-check">✓</span> Certified installation technicians</li>
+            <li><span class="feat-check">✓</span> Lifetime warranty on all installations</li>
+            <li><span class="feat-check">✓</span> Free expedited shipping over $99</li>
+            <li><span class="feat-check">✓</span> 24/7 live expert customer support</li>
+          </ul>
+          <a href="tel:+18883992902" class="btn-primary" id="stripCallBtn">📞 Call +1 (888) 399-2902</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Store</span>
+        <h2 class="section-title">Shop <span class="accent-text">Top Products</span></h2>
+        <p class="section-desc">Handpicked premium audio equipment — in-dash receivers, satellite tuners, CarPlay
+          systems & more.</p>
+      </div>
+
+      <!-- FILTERS -->
+      <div class="product-filters" id="productFilters">
+        <button class="filter-btn active" id="filterAll" onclick="filterProducts('all')">All</button>
+        <button class="filter-btn" id="filterReceiver" onclick="filterProducts('receiver')">Receivers</button>
+        <button class="filter-btn" id="filterSatellite" onclick="filterProducts('satellite')">Satellite</button>
+        <button class="filter-btn" id="filterBundle" onclick="filterProducts('bundle')">Bundles</button>
+        <button class="filter-btn" id="filterMoto" onclick="filterProducts('moto')">Motorcycle</button>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+
+        <!-- P1 -->
+        <div class="product-card" id="pc1" data-category="receiver" data-product-id="1">
+          <div class="prod-badge new">NEW</div>
+          <div class="prod-img-wrap">
+            <img src="101-1024x1024.jpg" alt="Kenwood eXcelon CarPlay Receiver" class="prod-img" id="pimg1" />
+            <div class="prod-overlay">
+              <button class="quick-add" onclick="addToCart(1)">+ Quick Add</button>
+            </div>
+          </div>
+          <div class="prod-body">
+            <span class="prod-cat">In-Dash Receiver</span>
+            <h3 class="prod-name">Kenwood eXcelon CarPlay 7"</h3>
+            <div class="prod-rating">★★★★★ <span class="rev-count">(248)</span></div>
+            <div class="prod-price-row">
+              <span class="prod-price">$349.99</span>
+              <span class="prod-was">$499.99</span>
+              <span class="prod-badge-save">-30%</span>
+            </div>
+            <div class="prod-actions">
+              <button class="btn-cart" id="cartBtn1" onclick="addToCart(1)">🛒 Add to Cart</button>
+              <button class="btn-buy" id="buyBtn1" onclick="buyNow(1)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P2 -->
+        <div class="product-card" id="pc2" data-category="receiver" data-product-id="2">
+          <div class="prod-badge hot">HOT</div>
+          <div class="prod-img-wrap">
+            <img src="51.jpg" alt="Kenwood Apple CarPlay Receiver" class="prod-img" id="pimg2" />
+            <div class="prod-overlay">
+              <button class="quick-add" onclick="addToCart(2)">+ Quick Add</button>
+            </div>
+          </div>
+          <div class="prod-body">
+            <span class="prod-cat">In-Dash Receiver</span>
+            <h3 class="prod-name">Kenwood Apple CarPlay & Backup Cam</h3>
+            <div class="prod-rating">★★★★★ <span class="rev-count">(512)</span></div>
+            <div class="prod-price-row">
+              <span class="prod-price">$289.99</span>
+              <span class="prod-was">$399.99</span>
+              <span class="prod-badge-save">-27%</span>
+            </div>
+            <div class="prod-actions">
+              <button class="btn-cart" id="cartBtn2" onclick="addToCart(2)">🛒 Add to Cart</button>
+              <button class="btn-buy" id="buyBtn2" onclick="buyNow(2)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P3 -->
+        <div class="product-card" id="pc3" data-category="bundle" data-product-id="3">
+          <div class="prod-badge sale">BUNDLE</div>
+          <div class="prod-img-wrap">
+            <img src="71.jpg" alt="Kenwood Satellite Bundle" class="prod-img" id="pimg3" />
+            <div class="prod-overlay">
+              <button class="quick-add" onclick="addToCart(3)">+ Quick Add</button>
+            </div>
+          </div>
+          <div class="prod-body">
+            <span class="prod-cat">Bundle Pack</span>
+            <h3 class="prod-name">Kenwood + Satellite Connect Bundle</h3>
+            <div class="prod-rating">★★★★★ <span class="rev-count">(189)</span></div>
+            <div class="prod-price-row">
+              <span class="prod-price">$449.99</span>
+              <span class="prod-was">$599.99</span>
+              <span class="prod-badge-save">-25%</span>
+            </div>
+            <div class="prod-actions">
+              <button class="btn-cart" id="cartBtn3" onclick="addToCart(3)">🛒 Add to Cart</button>
+              <button class="btn-buy" id="buyBtn3" onclick="buyNow(3)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P4 -->
+        <div class="product-card" id="pc4" data-category="receiver" data-product-id="4">
+          <div class="prod-img-wrap">
+            <img src="61.jpg" alt="Kenwood HD CarPlay Receiver" class="prod-img" id="pimg4" />
+            <div class="prod-overlay">
+              <button class="quick-add" onclick="addToCart(4)">+ Quick Add</button>
+            </div>
+          </div>
+          <div class="prod-body">
+            <span class="prod-cat">In-Dash Receiver</span>
+            <h3 class="prod-name">Kenwood HD-Radio CarPlay Receiver</h3>
+            <div class="prod-rating">★★★★☆ <span class="rev-count">(97)</span></div>
+            <div class="prod-price-row">
+              <span class="prod-price">$319.99</span>
+              <span class="prod-was">$429.99</span>
+              <span class="prod-badge-save">-26%</span>
+            </div>
+            <div class="prod-actions">
+              <button class="btn-cart" id="cartBtn4" onclick="addToCart(4)">🛒 Add to Cart</button>
+              <button class="btn-buy" id="buyBtn4" onclick="buyNow(4)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P5 -->
+        <div class="product-card" id="pc5" data-category="satellite" data-product-id="5">
+          <div class="prod-badge new">NEW</div>
+          <div class="prod-img-wrap">
+            <img src="91-1024x1024.jpg" alt="Soundstream Reserve CarPlay" class="prod-img" id="pimg5" />
+            <div class="prod-overlay">
+              <button class="quick-add" onclick="addToCart(5)">+ Quick Add</button>
+            </div>
+          </div>
+          <div class="prod-body">
+            <span class="prod-cat">Satellite Ready</span>
+            <h3 class="prod-name">Soundstream Reserve + MagiCast Wireless</h3>
+            <div class="prod-rating">★★★★★ <span class="rev-count">(341)</span></div>
+            <div class="prod-price-row">
+              <span class="prod-price">$549.99</span>
+              <span class="prod-was">$699.99</span>
+              <span class="prod-badge-save">-21%</span>
+            </div>
+            <div class="prod-actions">
+              <button class="btn-cart" id="cartBtn5" onclick="addToCart(5)">🛒 Add to Cart</button>
+              <button class="btn-buy" id="buyBtn5" onclick="buyNow(5)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P6 -->
+        <div class="product-card" id="pc6" data-category="receiver" data-product-id="6">
+          <div class="prod-badge hot">BEST SELLER</div>
+          <div class="prod-img-wrap">
+            <img src="81-300x300.jpg" alt="Pioneer NEX Receiver" class="prod-img" id="pimg6" />
+            <div class="prod-overlay">
+              <button class="quick-add" onclick="addToCart(6)">+ Quick Add</button>
+            </div>
+          </div>
+          <div class="prod-body">
+            <span class="prod-cat">In-Dash Receiver</span>
+            <h3 class="prod-name">Pioneer NEX Touchscreen Receiver</h3>
+            <div class="prod-rating">★★★★★ <span class="rev-count">(203)</span></div>
+            <div class="prod-price-row">
+              <span class="prod-price">$199.99</span>
+              <span class="prod-was">$279.99</span>
+              <span class="prod-badge-save">-29%</span>
+            </div>
+            <div class="prod-actions">
+              <button class="btn-cart" id="cartBtn6" onclick="addToCart(6)">🛒 Add to Cart</button>
+              <button class="btn-buy" id="buyBtn6" onclick="buyNow(6)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P7 -->
+        <div class="product-card" id="pc7" data-category="satellite" data-product-id="7">
+          <div class="prod-img-wrap">
+            <img src="111-300x300.jpg" alt="Kenwood Single DIN Receiver" class="prod-img" id="pimg7" />
+            <div class="prod-overlay">
+              <button class="quick-add" onclick="addToCart(7)">+ Quick Add</button>
+            </div>
+          </div>
+          <div class="prod-body">
+            <span class="prod-cat">Single DIN</span>
+            <h3 class="prod-name">Kenwood BT/FM/USB Single DIN Receiver</h3>
+            <div class="prod-rating">★★★★☆ <span class="rev-count">(156)</span></div>
+            <div class="prod-price-row">
+              <span class="prod-price">$89.99</span>
+              <span class="prod-was">$129.99</span>
+              <span class="prod-badge-save">-31%</span>
+            </div>
+            <div class="prod-actions">
+              <button class="btn-cart" id="cartBtn7" onclick="addToCart(7)">🛒 Add to Cart</button>
+              <button class="btn-buy" id="buyBtn7" onclick="buyNow(7)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P8 -->
+        <div class="product-card" id="pc8" data-category="bundle" data-product-id="8">
+          <div class="prod-badge sale">SALE</div>
+          <div class="prod-img-wrap">
+            <img src="121.jpg" alt="Kenwood Satellite Bundle" class="prod-img" id="pimg8" />
+            <div class="prod-overlay">
+              <button class="quick-add" onclick="addToCart(8)">+ Quick Add</button>
+            </div>
+          </div>
+          <div class="prod-body">
+            <span class="prod-cat">Bundle Pack</span>
+            <h3 class="prod-name">Kenwood CarPlay + Satellite Complete Bundle</h3>
+            <div class="prod-rating">★★★★★ <span class="rev-count">(421)</span></div>
+            <div class="prod-price-row">
+              <span class="prod-price">$499.99</span>
+              <span class="prod-was">$649.99</span>
+              <span class="prod-badge-save">-23%</span>
+            </div>
+            <div class="prod-actions">
+              <button class="btn-cart" id="cartBtn8" onclick="addToCart(8)">🛒 Add to Cart</button>
+              <button class="btn-buy" id="buyBtn8" onclick="buyNow(8)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P9 -->
+        <div class="product-card" id="pc9" data-category="moto" data-product-id="9">
+          <div class="prod-badge new">NEW</div>
+          <div class="prod-img-wrap">
+            <img src="product_motorcycle_radio.jpg" alt="SXM MotoRide Speaker System" class="prod-img prod-img-cover"
+              id="pimg9" />
+            <div class="prod-overlay">
+              <button class="quick-add" onclick="addToCart(9)">+ Quick Add</button>
+            </div>
+          </div>
+          <div class="prod-body">
+            <span class="prod-cat">Motorcycle Audio</span>
+            <h3 class="prod-name">SXM MotoRide Chrome Speaker System</h3>
+            <div class="prod-rating">★★★★★ <span class="rev-count">(178)</span></div>
+            <div class="prod-price-row">
+              <span class="prod-price">$229.99</span>
+              <span class="prod-was">$299.99</span>
+              <span class="prod-badge-save">-23%</span>
+            </div>
+            <div class="prod-actions">
+              <button class="btn-cart" id="cartBtn9" onclick="addToCart(9)">🛒 Add to Cart</button>
+              <button class="btn-buy" id="buyBtn9" onclick="buyNow(9)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P10 -->
+        <div class="product-card" id="pc10" data-category="receiver" data-product-id="10">
+          <div class="prod-badge hot">HOT</div>
+          <div class="prod-img-wrap">
+            <img src="product_multimedia_receiver.jpg" alt="Alpine CarPlay Multimedia System"
+              class="prod-img prod-img-cover" id="pimg10" />
+            <div class="prod-overlay">
+              <button class="quick-add" onclick="addToCart(10)">+ Quick Add</button>
+            </div>
+          </div>
+          <div class="prod-body">
+            <span class="prod-cat">Multimedia Receiver</span>
+            <h3 class="prod-name">Alpine Halo 9" CarPlay / Android Auto</h3>
+            <div class="prod-rating">★★★★★ <span class="rev-count">(394)</span></div>
+            <div class="prod-price-row">
+              <span class="prod-price">$649.99</span>
+              <span class="prod-was">$849.99</span>
+              <span class="prod-badge-save">-24%</span>
+            </div>
+            <div class="prod-actions">
+              <button class="btn-cart" id="cartBtn10" onclick="addToCart(10)">🛒 Add to Cart</button>
+              <button class="btn-buy" id="buyBtn10" onclick="buyNow(10)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P11 -->
+        <div class="product-card" id="pc11" data-category="receiver" data-product-id="11">
+          <div class="prod-badge sale">SALE</div>
+          <div class="prod-img-wrap">
+            <img src="product_radio_1.jpg" alt="Kenwood In-Dash Receiver" class="prod-img prod-img-cover" id="pimg11" />
+            <div class="prod-overlay">
+              <button class="quick-add" onclick="addToCart(11)">+ Quick Add</button>
+            </div>
+          </div>
+          <div class="prod-body">
+            <span class="prod-cat">In-Dash Receiver</span>
+            <h3 class="prod-name">Kenwood ProDash 7" Touch Receiver</h3>
+            <div class="prod-rating">★★★★★ <span class="rev-count">(511)</span></div>
+            <div class="prod-price-row">
+              <span class="prod-price">$349.99</span>
+              <span class="prod-was">$499.99</span>
+              <span class="prod-badge-save">-30%</span>
+            </div>
+            <div class="prod-actions">
+              <button class="btn-cart" id="cartBtn11" onclick="addToCart(11)">🛒 Add to Cart</button>
+              <button class="btn-buy" id="buyBtn11" onclick="buyNow(11)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P12 -->
+        <div class="product-card" id="pc12" data-category="satellite" data-product-id="12">
+          <div class="prod-img-wrap">
+            <img src="product_satellite_radio.jpg" alt="Onyx Plus Satellite Receiver" class="prod-img prod-img-cover"
+              id="pimg12" />
+            <div class="prod-overlay">
+              <button class="quick-add" onclick="addToCart(12)">+ Quick Add</button>
+            </div>
+          </div>
+          <div class="prod-body">
+            <span class="prod-cat">Satellite Radio</span>
+            <h3 class="prod-name">Onyx Plus Satellite Dash Receiver</h3>
+            <div class="prod-rating">★★★★★ <span class="rev-count">(267)</span></div>
+            <div class="prod-price-row">
+              <span class="prod-price">$89.99</span>
+              <span class="prod-was">$129.99</span>
+              <span class="prod-badge-save">-31%</span>
+            </div>
+            <div class="prod-actions">
+              <button class="btn-cart" id="cartBtn12" onclick="addToCart(12)">🛒 Add to Cart</button>
+              <button class="btn-buy" id="buyBtn12" onclick="buyNow(12)">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL MIDPAGE BANNER -->
+  <div class="call-midpage-banner" id="callMidBanner">
+    <div class="call-mid-inner">
+      <div class="call-mid-icon">📞</div>
+      <div class="call-mid-text">
+        <strong>Not sure which product is right for you?</strong>
+        <span>Our experts will guide you in minutes — completely free.</span>
+      </div>
+      <a href="tel:+18883992902" class="call-mid-btn" id="callMidBtn">Call +1 (888) 399-2902</a>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE BANNER -->
+  <section class="experience-banner" id="experienceBanner">
+    <div class="exp-bg">
+      <img src="hero_banner.jpg" alt="Premium in-vehicle audio experience" id="expBannerImg" />
+      <div class="exp-overlay"></div>
+    </div>
+    <div class="exp-content">
+      <span class="exp-tag">The Satellite Radio Call Difference</span>
+      <h2>Drive with <span class="exp-highlight">Exceptional Sound</span></h2>
+      <p>Every road deserves the perfect soundtrack. Our expert team installs premium satellite radio and multimedia
+        systems that transform your daily commute into an extraordinary experience.</p>
+      <div class="exp-actions">
+        <a href="#products" class="btn-primary" id="expShopBtn">Shop All Products</a>
+        <a href="tel:+18883992902" class="exp-call-btn" id="expCallBtn">📞 +1 (888) 399-2902</a>
+      </div>
+      <div class="exp-chips">
+        <span>🚗 1,000+ Vehicles Equipped</span>
+        <span>⭐ 4.9/5 Average Rating</span>
+        <span>🛡 Lifetime Warranty</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANS -->
+  <section class="plans" id="plans">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Subscriptions</span>
+        <h2 class="section-title">Choose Your <span class="accent-text">Plan</span></h2>
+        <p class="section-desc">Unlock thousands of channels with flexible satellite radio subscription plans.</p>
+      </div>
+      <div class="plans-grid" id="plansGrid">
+
+        <div class="plan-card" id="plan1">
+          <div class="plan-name">Starter</div>
+          <div class="plan-price-wrap">
+            <span class="plan-dollar">$</span><span class="plan-num">9</span><span class="plan-cents">.99<span
+                class="plan-mo">/mo</span></span>
+          </div>
+          <ul class="plan-feats">
+            <li class="on">✓ 100+ Music Channels</li>
+            <li class="on">✓ News & Talk Radio</li>
+            <li class="on">✓ 1 Vehicle</li>
+            <li class="on">✓ Online Streaming</li>
+            <li class="off">✗ Sports Packages</li>
+            <li class="off">✗ Premium Channels</li>
+          </ul>
+          <button class="btn-plan" id="planBtn1" onclick="addPlanToCart('Starter Plan', 9.99)">Subscribe Now</button>
+        </div>
+
+        <div class="plan-card featured" id="plan2">
+          <div class="plan-popular-badge">Most Popular</div>
+          <div class="plan-name">Premium</div>
+          <div class="plan-price-wrap">
+            <span class="plan-dollar">$</span><span class="plan-num">19</span><span class="plan-cents">.99<span
+                class="plan-mo">/mo</span></span>
+          </div>
+          <ul class="plan-feats">
+            <li class="on">✓ 500+ Music Channels</li>
+            <li class="on">✓ News, Talk & Sports</li>
+            <li class="on">✓ Up to 3 Vehicles</li>
+            <li class="on">✓ Mobile Streaming</li>
+            <li class="on">✓ Sports Packages</li>
+            <li class="off">✗ Exclusive VIP Content</li>
+          </ul>
+          <button class="btn-plan featured-btn" id="planBtn2" onclick="addPlanToCart('Premium Plan', 19.99)">Subscribe
+            Now</button>
+        </div>
+
+        <div class="plan-card" id="plan3">
+          <div class="plan-name">Elite</div>
+          <div class="plan-price-wrap">
+            <span class="plan-dollar">$</span><span class="plan-num">34</span><span class="plan-cents">.99<span
+                class="plan-mo">/mo</span></span>
+          </div>
+          <ul class="plan-feats">
+            <li class="on">✓ 1,000+ All Channels</li>
+            <li class="on">✓ Everything in Premium</li>
+            <li class="on">✓ Unlimited Vehicles</li>
+            <li class="on">✓ All-Device Streaming</li>
+            <li class="on">✓ All Sports Packages</li>
+            <li class="on">✓ VIP Exclusive Content</li>
+          </ul>
+          <button class="btn-plan" id="planBtn3" onclick="addPlanToCart('Elite Plan', 34.99)">Subscribe Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL MIDPAGE BANNER 2 -->
+  <div class="call-midpage-banner call-midpage-banner-alt" id="callMidBanner2">
+    <div class="call-mid-inner">
+      <div class="call-mid-icon">🎧</div>
+      <div class="call-mid-text">
+        <strong>Want help choosing a plan?</strong>
+        <span>Call our team — we'll match you to the perfect subscription.</span>
+      </div>
+      <a href="tel:+18883992902" class="call-mid-btn" id="callMidBtn2">Call Free: +1 (888) 399-2902</a>
+    </div>
+  </div>
+
+  <!-- STATS BANNER -->
+  <section class="stats-banner" id="statsBanner">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item"><strong>20+</strong><span>Years Experience</span></div>
+        <div class="stat-item"><strong>50,000+</strong><span>Happy Customers</span></div>
+        <div class="stat-item"><strong>500+</strong><span>Products In Stock</span></div>
+        <div class="stat-item"><strong>4.9 ★</strong><span>Average Rating</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Customer Reviews</span>
+        <h2 class="section-title">What Our <span class="accent-text">Customers Say</span></h2>
+      </div>
+      <div class="testi-grid" id="testiGrid">
+        <div class="testi-card" id="tc1">
+          <div class="testi-stars">★★★★★</div>
+          <p>"Satellite Radio Call transformed my morning commute. The crystal-clear satellite reception and massive
+            channel selection is absolutely amazing. Best audio upgrade I've ever made!"</p>
+          <div class="testi-author">
+            <div class="testi-avatar">JM</div>
+            <div><strong>James Mitchell</strong><span>Verified Buyer · Dallas, TX</span></div>
+          </div>
+        </div>
+        <div class="testi-card" id="tc2">
+          <div class="testi-stars">★★★★★</div>
+          <p>"The installation team was professional and had my new system running perfectly in under 2 hours. The sound
+            quality is unbelievable — worth every penny!"</p>
+          <div class="testi-author">
+            <div class="testi-avatar">SL</div>
+            <div><strong>Sarah Lawson</strong><span>Verified Buyer · Miami, FL</span></div>
+          </div>
+        </div>
+        <div class="testi-card" id="tc3">
+          <div class="testi-stars">★★★★★</div>
+          <p>"Called support at 2am with a question — someone actually picked up immediately and helped me. That kind of
+            service is rare! Absolutely 10/10 recommend."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">RC</div>
+            <div><strong>Robert Chen</strong><span>Verified Buyer · Los Angeles, CA</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonials Call CTA -->
+      <div class="testi-call-cta" id="testiCallCta">
+        <p>Join 50,000+ happy customers — <strong>talk to a live expert right now</strong></p>
+        <a href="tel:+18883992902" class="btn-primary" id="testiCallBtn">📞 Call +1 (888) 399-2902 — Free</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section class="contact-cta" id="contact">
+    <div class="container">
+      <div class="cta-grid">
+        <div class="cta-left">
+          <h2>Ready to Upgrade<br /><span class="accent-text">Your Ride?</span></h2>
+          <p>Speak with one of our audio experts today. We'll help find the perfect system for your vehicle and budget.
+          </p>
+          <a href="tel:+18883992902" class="cta-call-block" id="ctaCallBlock">
+            <div class="cta-call-icon">📞</div>
+            <div>
+              <span class="cta-call-label">Call Us 24/7 — Free</span>
+              <strong>+1 (888) 399-2902</strong>
+            </div>
+          </a>
+          <div class="cta-trust">
+            <span>🛡 Secure & Encrypted</span>
+            <span>🚚 Free Shipping $99+</span>
+            <span>↩ Easy Returns</span>
+          </div>
+        </div>
+        <div class="cta-form-wrap">
+          <form class="cta-form" id="contactForm" onsubmit="submitForm(event)">
+            <h3>Get a Free Consultation</h3>
+            <div class="form-row">
+              <input type="text" id="formName" placeholder="Your Full Name" required />
+            </div>
+            <div class="form-row">
+              <input type="email" id="formEmail" placeholder="Email Address" required />
+            </div>
+            <div class="form-row">
+              <input type="tel" id="formPhone" placeholder="Phone Number" />
+            </div>
+            <div class="form-row">
+              <select id="formService">
+                <option value="">Select a Service</option>
+                <option>Satellite Radio Subscription</option>
+                <option>In-Dash Receiver Purchase</option>
+                <option>Professional Installation</option>
+                <option>Repair & Upgrade</option>
+                <option>General Inquiry</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <textarea id="formMsg" placeholder="Tell us about your vehicle and needs..." rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn-primary full-w" id="formSubmitBtn">Send Message →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER SECTION -->
+  <section class="disclaimer-section" id="disclaimer">
+    <div class="container">
+      <div class="disclaimer-inner">
+        <div class="disclaimer-icon-col">
+          <div class="disclaimer-shield">⚖️</div>
+          <h2>Important Disclaimer</h2>
+        </div>
+        <div class="disclaimer-body">
+
+          <div class="disclaimer-block" id="dBlock1">
+            <div class="disclaimer-block-icon">🏢</div>
+            <div>
+              <h4>Independent Content Provider</h4>
+              <p>Satellite Radio Call LLC is an <strong>independent content provider and retailer</strong>. We are not
+                affiliated with, endorsed by, or officially connected to any brand, manufacturer, or software company
+                whose products we list. We independently source and sell these items and provide subscription services
+                for in-vehicle audio and satellite radio products.</p>
+            </div>
+          </div>
+
+          <div class="disclaimer-block" id="dBlock2">
+            <div class="disclaimer-block-icon">🏷️</div>
+            <div>
+              <h4>Brand Names &amp; Logos</h4>
+              <p>All brand names, product names, trademarks, and logos referenced on this website — including but not
+                limited to Kenwood, Pioneer, Alpine, Sony, and Soundstream — are the property of their respective
+                owners and are used <strong>for representation and identification purposes only</strong>. Their use does
+                not imply any affiliation or endorsement.</p>
+            </div>
+          </div>
+
+          <div class="disclaimer-block" id="dBlock3">
+            <div class="disclaimer-block-icon">🛒</div>
+            <div>
+              <h4>Product Availability</h4>
+              <p>The products and subscription plans we offer <strong>may also be available directly on the respective
+                  brand owner's official website</strong>. We encourage customers to compare options. As an independent
+                seller, we provide expert guidance, support, and value-added services.</p>
+            </div>
+          </div>
+
+          <div class="disclaimer-block" id="dBlock4">
+            <div class="disclaimer-block-icon">🔗</div>
+            <div>
+              <h4>No External Links Policy</h4>
+              <p>This website does not intentionally provide any external links to third-party websites. If you discover
+                any external link on this site, please notify us immediately at <a href="mailto:contact@satelliteradiocall.com" class="disclaimer-email" id="disclaimerEmail">contact@satelliteradiocall.com</a> and we will promptly investigate and remove it.
+              </p>
+            </div>
+          </div>
+
+          <div class="disclaimer-note" id="disclaimerNote">
+            <span class="dnote-icon">📋</span>
+            By using this website and purchasing products or subscriptions through Satellite Radio Call LLC, you
+            acknowledge that we operate as an independent retailer and content provider, separate from the brand
+            manufacturers listed herein.
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="footer-logo-link">
+            <div class="logo-icon">📻</div>
+            <div class="logo-text">
+              <span class="logo-brand">Satellite Radio</span>
+              <span class="logo-sub">Call</span>
+            </div>
+          </a>
+          <p>Premium satellite radio systems and expert in-vehicle audio solutions for drivers who demand the very best.
+          </p>
+          <a href="tel:+18883992902" class="footer-phone-link" id="footerPhone">📞 +1 (888) 399-2902</a>
+          <p style="margin-top:10px;font-size:.82rem;color:#9ca3af;">📍 116 Agnes Rd SW Ste 200, Knoxville, TN 37919, USA</p>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#products">Satellite Receivers</a></li>
+            <li><a href="#products">In-Dash Stereos</a></li>
+            <li><a href="#products">CarPlay Systems</a></li>
+            <li><a href="#products">Bundle Deals</a></li>
+            <li><a href="#products">Accessories</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#plans">Subscription Plans</a></li>
+            <li><a href="#services">Installation</a></li>
+            <li><a href="#services">Repair & Upgrade</a></li>
+            <li><a href="#services">Expert Support</a></li>
+            <li><a href="#contact">Free Consultation</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#disclaimer">Disclaimer</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-disclaimer-strip" id="footerDisclaimerStrip">
+        <p>⚖️ <strong>Disclaimer:</strong> Satellite Radio Call LLC is an independent content provider and retailer. We are
+          not affiliated with any brand. Brand names and logos are used for representation purposes only. We sell these
+          products and provide subscription services independently. Products may also be available on brand owners'
+          websites. If you find any external links, contact us at <a href="mailto:contact@satelliteradiocall.com" class="footer-disclaimer-email">contact@satelliteradiocall.com</a> and we will remove them.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Satellite Radio Call LLC. All rights reserved. <span class="footer-indie-badge">Independent
+            Retailer</span></p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook" class="soc-btn">f</a>
+          <a href="#" aria-label="Twitter" class="soc-btn">𝕏</a>
+          <a href="#" aria-label="Instagram" class="soc-btn">📸</a>
+          <a href="#" aria-label="YouTube" class="soc-btn">▶</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING CALL BUTTON (Mobile) -->
+  <a href="tel:+18883992902" class="float-call-fab" id="floatCallFab" aria-label="Call us now">
+    <span class="float-call-pulse"></span>
+    <span class="float-call-icon">📞</span>
+  </a>
+
+  <!-- MOBILE STICKY CTA -->
+  <div class="mobile-sticky-cta" id="mobileStickyBar">
+    <a href="tel:+18883992902" class="mobile-call-btn mobile-call-primary" id="mobilePrimaryCallBtn">
+      <span class="mobile-call-pulse-ring"></span>
+      <span class="mob-call-icon">📞</span>
+      <span class="mob-call-content">
+        <span class="mob-call-label">Tap to Call FREE</span>
+        <span class="mob-call-num">+1 (888) 399-2902</span>
+      </span>
+    </a>
+    <button class="mobile-cart-btn" onclick="openCart()">🛒 <span id="mobileStickyCount">0</span></button>
+  </div>
+
+  <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="app.js"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"3b6bbcb514974f51b8c4a6d9d9b092b8","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+
+<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'},{'ap':'cpsh-oh'},{'server':'p3plzcpnl507452'},{'dcenter':'p3'},{'cp_id':'11056819'},{'cp_cl':'8'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='../img1.wsimg.com/signals/js/clients/scc-c2/scc-c2.min.js'></script>
+</html>
