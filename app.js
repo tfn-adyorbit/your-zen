@@ -171,7 +171,7 @@ function checkout() {
   const total = getTotal();
   showToast('🎉 Redirecting to secure checkout…');
   setTimeout(() => {
-    alert(`Thank you for your order! 🎉\n\nOrder Total: $${total.toFixed(2)}\n\nTo complete your purchase or need help, please call:\n\n📞 +1 (888) 399-2902\n\nWe're available 24/7!`);
+    alert(`Thank you for your order! 🎉\n\nOrder Total: $${total.toFixed(2)}\n\nTo complete your purchase or need help, please call:\n\n📞 +1 (888) 854-8245\n\nWe're available 24/7!`);
   }, 800);
 }
 
